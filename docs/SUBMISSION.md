@@ -19,7 +19,7 @@ React, Vite, CSS and position-based requestAnimationFrame motion. The work combi
 ## What to demonstrate
 
 1. Open the homepage and scroll naturally through the bloom into the challenge and partner ribbon.
-2. Pause the partner animation or use View all; then continue through the original benefits and events.
+2. Hover or tab into the partner ribbon to stop its movement; keyboard entry shows all seven partners. Continue through the original benefits into the shared giant-bloom environment, community and events.
 3. Open Blog, search for API, and enter the local reading guide. Point out the complete original article link.
 4. Open Gallery and the genuine V1 winner and video recordings.
 5. Show the phone layout and the motion preference.

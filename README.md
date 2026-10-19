@@ -11,8 +11,8 @@ A cinematic, responsive redesign of [Hyperbloom Hacks](https://www.hyperbloomhac
 ## Design and experience
 
 - A layered, reversible bloom opens with native scrolling. The text and actions stay readable and available throughout.
-- One consistent ivory, cobalt and gold environment continues into later chapters and secondary pages.
-- Seven genuine past partners appear immediately after the current challenge in a sliding ribbon with pause, hover/focus suspension and a stationary keyboard-accessible view.
+- The giant ivory, cobalt and gold bloom continues through all lower homepage chapters. Secondary pages retain quiet edge petals; the journal uses compact editorial rows instead of oversized illustrated cards.
+- Seven genuine past partners appear immediately after the current challenge in a clean sliding logo ribbon. Hover suspends motion; keyboard entry or global pause automatically shows all seven in a stationary layout, without extra local buttons.
 - A clear vertical reading path, deliberate typography, restrained button feedback and a stable navigation system support the visual story.
 - Mobile layouts, visible keyboard focus, skip links, system reduced-motion support and a persistent motion preference are included.
 
@@ -41,7 +41,7 @@ npm run check:live
 npm run preview -- --host 127.0.0.1 --port 4174
 ```
 
-The release check verifies built asset references, dynamic partner assets, the Hosting public directory, SPA fallback, and absence of development/private files from the public build. All 25 automated tests pass. Browser checks cover phone, tablet and desktop layouts, navigation, filters/search, guide refresh, media playback, carousel controls, motion reversal, pause and dialog focus return. See [testing details and limits](docs/TESTING.md).
+The release check verifies built asset references, dynamic partner assets, the Hosting public directory, SPA fallback, and absence of development/private files from the public build. All 25 automated tests pass. Browser checks cover phone, tablet and desktop layouts, navigation, filters/search, guide refresh, media playback, logo-ribbon keyboard access, motion reversal, global pause and dialog focus return. See [testing details and limits](docs/TESTING.md).
 
 The public Firebase deployment also passed an [independent live check](docs/LIVE-CHECK.md): 11 direct routes and 64 assets, with deployed asset bytes matching the tested build. `npm run check:live` can repeat that check after building locally.
 

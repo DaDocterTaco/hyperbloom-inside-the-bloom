@@ -16,6 +16,8 @@ Verified October 19, 2026, before the 5 PM EDT submission deadline.
 
 ## Live browser checks
 
+Final visual pass: the lower homepage continues inside the giant glass-bloom environment, while secondary routes retain restrained edge petals. Home and blog article lists use compact editorial rows without oversized diagrams or repeated guide buttons. Original author links, all four readers, search/topics, event filters, FAQ and official-service handoffs remain. The sponsor Pause/View all buttons are removed; all seven links appear automatically as a stationary layout on keyboard entry or global pause. Narrow-phone checks at 320/390 CSS pixels include search, readable FAQ and the stationary sponsor layout without horizontal overflow.
+
 The homepage renders its original six events and seven partners with no broken visible images. The challenge action retains the real Devpost URL. The partner ribbon pauses and expands into its stationary seven-link view on keyboard entry.
 
 Searching for API returns one article. Search state survives refresh, and the API guide loads directly after refresh with all three sections and its complete original linked. Gallery navigation works, and both original recordings reach readyState 4 with no media error.

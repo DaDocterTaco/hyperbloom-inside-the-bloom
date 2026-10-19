@@ -15,9 +15,9 @@ Responsive views were inspected at 320, 390, 768, 901 and 1440 CSS pixels. The c
 
 The homepage, benefits, community, all six events, mission/profiles, FAQ and contact were reviewed. Blog search and filtering, all four local guides and their official sources, Gallery/V1, both original video streams, closed-event and missing-page paths were exercised. Both recordings reached readyState 4 without an error.
 
-The seven-partner carousel pauses, exposes a stationary View all list, opens that view on keyboard entry, and suspends its animation offscreen. Duplicate visual groups have no duplicate interactive links. Global pause preserves a stable decorative scene while navigating. The document camera returns to the identical artwork transforms at the same scroll coordinate. Dialogs close with Escape and return focus to their triggers.
+The seven-partner ribbon suspends on hover and offscreen. Keyboard entry or global pause automatically presents all seven links in a stationary layout; the final release removes the local Pause and View all controls at the user's request. Duplicate visual groups have no duplicate interactive links. Global pause preserves a stable decorative scene while navigating. The document camera returns to the identical artwork transforms at the same scroll coordinate. Dialogs close with Escape and return focus to their triggers.
 
-The compiled build was checked for direct reader refresh, search, carousel pause/keyboard access, gallery media and contact dialog focus return. No browser console errors were observed in those checks.
+The compiled build was checked for direct reader refresh, search, ribbon keyboard access/global pause, gallery media and contact dialog focus return. No browser console errors were observed in those checks.
 
 ## Public release checks
 

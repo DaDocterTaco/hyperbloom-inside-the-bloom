@@ -9,6 +9,7 @@ import "./cinema.css";
 import "./refinements.css";
 import "./premium.css";
 import "./legal.css";
+import "./finale.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -288,7 +288,7 @@ export function App() {
     return () => query.removeEventListener("change", update);
   }, []);
   return (
-    <MediaProvider key={route}><div className={`${motion ? 'app' : 'app motion-paused'} premium-experience`} onClick={onLinkClick}>
+    <MediaProvider key={route}><div className={`${motion ? 'app' : 'app motion-paused'} premium-experience ${route === 'home' ? 'home-experience' : ''}`} onClick={onLinkClick}>
       <BloomContinuity motion={motion} route={route} />
       <a className="skip-link" href={route === "home" ? "#october" : "#main-content"}>
         {route === "home" ? "Skip to the current challenge" : "Skip to main content"}

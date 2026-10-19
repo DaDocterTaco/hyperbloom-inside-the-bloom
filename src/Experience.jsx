@@ -1,10 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
-import { ArrowRight, ArrowUp, ArrowUpRight, DiscordLogo, EnvelopeSimple, InstagramLogo, LinkedinLogo, MagnifyingGlass, Pause, Play, Plus, X } from '@phosphor-icons/react';
+import { ArrowRight, ArrowUp, ArrowUpRight, DiscordLogo, EnvelopeSimple, InstagramLogo, LinkedinLogo, MagnifyingGlass, Play, Plus, X } from '@phosphor-icons/react';
 import { articlePath, articles, events, faq, founders, links, teamProfiles } from './content';
 import { eventIsOpen, octoberState, selectArticles, selectEvents } from './siteLogic.mjs';
 import { useAmbientScene, useClock } from './experienceHooks';
 import { useMedia } from './MediaDialog';
-import { IdeaArtwork } from './IdeaArtwork';
 
 function Button({ href, children, secondary = false, ...props }) {
   return <a href={href} className={secondary ? 'release-button secondary' : 'release-button'} {...props}>{children}<ArrowRight size={21} aria-hidden="true" /></a>;
@@ -62,11 +61,10 @@ export function EventArchive({ motion }) {
 function ArticleEntry({ article, level = 2 }) {
   const Heading = `h${level}`;
   return <article className="journal-entry">
-    <div className="journal-art-link"><IdeaArtwork title={article.title} /></div>
     <div className="journal-entry-meta"><span>{article.category}</span><span>Original · {article.time}</span></div>
     <Heading><a href={articlePath(article)}>{article.title}<ArrowRight size={24} aria-hidden="true" /></a></Heading>
     <p>{article.intro}</p>
-    <div className="journal-entry-bottom"><a href="https://www.hyperbloomhacks.com/profile/kashvi172964630/profile" target="_blank" rel="noopener noreferrer" className="journal-author">Original by kashvi1729</a><a className="release-text-link" href={articlePath(article)}>Read the guide <ArrowRight size={17} aria-hidden="true" /></a></div>
+    <div className="journal-entry-bottom"><a href="https://www.hyperbloomhacks.com/profile/kashvi172964630/profile" target="_blank" rel="noopener noreferrer" className="journal-author">Original by kashvi1729 <ArrowUpRight size={12} aria-hidden="true" /></a></div>
   </article>;
 }
 export function Journal({ motion }) {
@@ -95,8 +93,7 @@ const partners = [
 ];
 export function Partners({ motion }) {
   const root = useRef(null);
-  const [paused, setPaused] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [keyboardView, setKeyboardView] = useState(false);
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(() => !document.hidden);
   useEffect(() => {
@@ -106,11 +103,12 @@ export function Partners({ motion }) {
     document.addEventListener('visibilitychange', visibility);
     return () => { observer.disconnect(); document.removeEventListener('visibilitychange', visibility); };
   }, []);
-  const running = motion && !paused && !expanded && inView && pageVisible;
-  return <section ref={root} className={`release-partners sponsor-carousel ${expanded ? 'is-expanded' : ''}`} id="partners" aria-label="Past sponsors and partners" aria-roledescription="carousel" data-running={running}>
-    <div className="sponsor-heading"><div><p className="chapter-kicker">Past sponsors &amp; partners</p><p>Good ideas grow with good company.</p></div><div className="sponsor-controls"><button onClick={() => setPaused(!paused)} aria-label={paused ? 'Resume sponsor animation' : 'Pause sponsor animation'} aria-pressed={paused} disabled={!motion || expanded}>{paused || !motion ? <Play size={15} weight="fill" /> : <Pause size={15} weight="fill" />}</button><button onClick={() => setExpanded(!expanded)} aria-expanded={expanded} aria-controls="sponsor-logos">{expanded ? 'Show carousel' : 'View all 7'}<ArrowRight size={15} aria-hidden="true" /></button></div></div>
-    <div className="sponsor-window" id="sponsor-logos" onFocusCapture={event => { if (event.target.tagName === 'A') setExpanded(true); }}><div className="sponsor-track"><ul className="sponsor-group">{partners.map(([name, href, file]) => <li key={name}><a href={href} aria-label={name} target="_blank" rel="noopener noreferrer"><img src={'/source/' + file} alt={name} loading="lazy" /></a></li>)}</ul>{!expanded && <div className="sponsor-group sponsor-duplicate" aria-hidden="true">{partners.map(([name, , file]) => <span key={name}><img src={'/source/' + file} alt="" loading="lazy" /></span>)}</div>}</div></div>
-    <p className="sponsor-source-note">Past relationships shown on the original Hyperbloom website. No sponsorship or endorsement of this mockup is implied.</p>
+  const expanded = !motion || keyboardView;
+  const running = motion && !expanded && inView && pageVisible;
+  return <section ref={root} className={`release-partners sponsor-carousel ${expanded ? 'is-expanded' : ''}`} id="partners" aria-label="Past sponsors and partners" data-running={running}>
+    <div className="sponsor-heading"><div><p className="chapter-kicker">Past sponsors &amp; partners</p><p>Good ideas grow with good company.</p></div></div>
+    <div className="sponsor-window" id="sponsor-logos" onFocusCapture={() => setKeyboardView(true)}><div className="sponsor-track"><ul className="sponsor-group">{partners.map(([name, href, file]) => <li key={name}><a href={href} aria-label={name} target="_blank" rel="noopener noreferrer"><img src={'/source/' + file} alt={name} loading="lazy" /></a></li>)}</ul>{!expanded && <div className="sponsor-group sponsor-duplicate" aria-hidden="true">{partners.map(([name, , file]) => <span key={name}><img src={'/source/' + file} alt="" loading="lazy" /></span>)}</div>}</div></div>
+    <p className="sponsor-source-note">Past Hyperbloom partners · No endorsement of this mockup.</p>
   </section>;
 }
 export function Questions() {
@@ -144,7 +142,7 @@ export function BlogPage({ motion }) {
   useEffect(() => { const url = new URL(window.location.href); if (query.trim()) url.searchParams.set('q', query); else url.searchParams.delete('q'); window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash); }, [query]);
   const clear = () => { setQuery(''); setCategory('all'); search.current?.focus(); };
   return <div className="route-page blog-page">
-    <section ref={scene} className="page-intro"><PetalAtmosphere variant="page-art" /><a className="page-back" href="/#home"><ArrowRight size={16} className="back-arrow" /> Home</a><ChapterHead page eyebrow="The Hyperbloom journal" title="Stay curious." accent="Keep growing.">Ideas, tools, and fresh perspectives from the community.</ChapterHead></section>
+    <section ref={scene} className="page-intro"><PetalAtmosphere variant="page-art" /><a className="page-back" href="/#home"><ArrowRight size={16} className="back-arrow" /> Home</a><ChapterHead page eyebrow="The Hyperbloom journal" title="Stay curious.">Ideas, tools, and fresh perspectives from the community.</ChapterHead></section>
     <section className="blog-catalogue" aria-label="All blog articles"><form role="search" className="journal-search" onSubmit={event => event.preventDefault()}><div className="journal-search-field"><MagnifyingGlass size={22} aria-hidden="true" /><label className="sr-only" htmlFor="journal-search">Search articles</label><input ref={search} id="journal-search" type="search" autoComplete="off" placeholder="Find an idea, topic, or tool…" value={query} onChange={event => setQuery(event.target.value)} />{query && <button type="button" onClick={clear} aria-label="Clear search"><X size={19} /></button>}</div><label className="topic-filter"><span>Topic</span><select value={category} onChange={event => setCategory(event.target.value)} aria-label="Filter by topic"><option value="all">All topics</option><option value="AUTOMATION">Automation</option><option value="ARTIFICIAL INTELLIGENCE">Artificial intelligence</option><option value="DEVELOPMENT">Development</option></select></label></form><p className="catalogue-count" role="status">{results.length} {results.length === 1 ? 'article' : 'articles'}{query.trim() ? ` for “${query.trim()}”` : ''}</p><div className="blog-results">{results.map(article => <ArticleEntry key={article.href} article={article} />)}</div>{!results.length && <div className="release-empty"><h2>No ideas found just yet.</h2><p>Try “AI”, “API”, or “automation”, or explore all four articles.</p><button className="release-button secondary" onClick={clear}>Show all articles <ArrowRight size={20} /></button></div>}<p className="journal-service-note">Read concise guides here. Each one links to its complete original article, author profile, and conversation on the official blog.</p><TextLink href={links.blog} external>Visit the original blog</TextLink></section>
   </div>;
 }

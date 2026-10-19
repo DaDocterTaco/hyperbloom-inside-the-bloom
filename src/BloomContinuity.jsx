@@ -44,7 +44,8 @@ export function BloomContinuity({ motion, route }) {
     measure();
     return () => { alive = false; cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', measure); };
   }, [motion, route]);
-  return <div ref={root} className={`bloom-continuity ${route !== 'home' ? 'secondary-scene' : ''}`} aria-hidden="true">
+  return <div ref={root} className={`bloom-continuity ${route !== 'home' ? 'secondary-scene' : 'home-scene'}`} aria-hidden="true">
+    {route === 'home' && <picture className="continuity-vault"><source media="(max-width: 760px)" srcSet="/art/journey-interior-mobile-v2.webp" /><img src="/art/journey-interior-desktop-v2.webp" alt="" decoding="async" /></picture>}
     <div className="continuity-light" />
     <img className="continuity-left" src="/art/petals-left.webp" alt="" decoding="async" />
     <img className="continuity-right" src="/art/bloom-sculpture-v1.webp" alt="" decoding="async" />
