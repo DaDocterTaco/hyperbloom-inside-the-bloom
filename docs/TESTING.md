@@ -20,6 +20,10 @@ The compiled build was checked for direct reader refresh, search, carousel pause
 
 ## Public release checks
 
+The public Firebase release passed `npm run check:live`: all 11 direct app routes return the current app shell, and all 64 checked scripts, styles, fonts, images and the calendar match the local production bytes. HTML revalidation and immutable caching for hashed bundles are verified. See [live deployment evidence](LIVE-CHECK.md).
+
+The deployed browser session additionally passed search and query refresh, direct reader refresh, partner pause/keyboard access, phone navigation and contact arrival, pause persistence, and both original video streams reaching readyState 4. No browser console errors were observed. The Discord invitation resolves to the genuine Hyperbloom community without requiring this test to join or create an account.
+
 Firebase Hosting is configured to publish only `dist/client`, with direct-route rewrites and appropriate caching. Repository publication excludes local QA screenshots/traces, design exploration, caches, credentials and other workspace projects. The public repository includes the working app, production assets, credits and reproducible commands.
 
 ## Practical limits

@@ -35,10 +35,13 @@ npm run dev -- --host 127.0.0.1 --port 4173
 npm test
 npm run build
 npm run check:release
+npm run check:live
 npm run preview -- --host 127.0.0.1 --port 4174
 ```
 
 The release check verifies built asset references, dynamic partner assets, the Hosting public directory, SPA fallback, and absence of development/private files from the public build. All 25 automated tests pass. Browser checks cover phone, tablet and desktop layouts, navigation, filters/search, guide refresh, media playback, carousel controls, motion reversal, pause and dialog focus return. See [testing details and limits](docs/TESTING.md).
+
+The public Firebase deployment also passed an [independent live check](docs/LIVE-CHECK.md): 11 direct routes and 64 assets, with deployed asset bytes matching the tested build. `npm run check:live` can repeat that check after building locally.
 
 ## Deploy to Firebase Hosting
 
