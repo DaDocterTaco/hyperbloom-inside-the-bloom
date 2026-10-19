@@ -4,8 +4,6 @@ import { articlePath, articles, events, faq, founders, links, teamProfiles } fro
 import { eventIsOpen, octoberState, selectArticles, selectEvents } from './siteLogic.mjs';
 import { useAmbientScene, useClock } from './experienceHooks';
 import { useMedia } from './MediaDialog';
-import { HomeChapterBloom } from './HomeChapterBloom';
-import { BloomFinale } from './BloomFinale';
 
 function Button({ href, children, secondary = false, ...props }) {
   return <a href={href} className={secondary ? 'release-button secondary' : 'release-button'} {...props}>{children}<ArrowRight size={21} aria-hidden="true" /></a>;
@@ -27,7 +25,6 @@ export function Community({ motion }) {
   const scene = useAmbientScene(motion);
   const { open } = useMedia();
   return <section ref={scene} className="release-community release-chapter" id="showcase" aria-labelledby="community-heading">
-    <HomeChapterBloom variant="community" motion={motion} />
     <PetalAtmosphere variant="community-art" />
     <div className="chapter-head"><p className="chapter-kicker">Our first chapter</p><h2 id="community-heading" className="serif">The first bloom.</h2><p className="chapter-lead">A real community. A first chapter worth remembering.</p></div>
     <figure className="community-winner"><button onClick={event => open('winner', event)} aria-label="View full winner announcement"><img src="/source/v1-winner.avif" alt="Original Hyperbloom V1 announcement congratulating Deep" width="464" height="620" loading="lazy" /></button><figcaption>Deep · Hyperbloom V1 winner</figcaption></figure>
@@ -42,7 +39,6 @@ export function EventArchive({ motion }) {
   const [filter, setFilter] = useState('all');
   const visible = selectEvents(events, filter, now);
   return <section ref={scene} className="release-events release-chapter" id="events" aria-labelledby="events-heading">
-    <HomeChapterBloom variant="events" motion={motion} />
     <PetalAtmosphere variant="events-art" />
     <div className="chapter-head"><p className="chapter-kicker">Upcoming &amp; past events</p><h2 id="events-heading">Find your next challenge.</h2><p className="chapter-lead">{octoberState(now) === 'open' ? 'One open challenge. A community ready to help.' : 'Explore our past challenges. Stay for what comes next.'}</p></div>
     <div className="release-filters" role="group" aria-label="Filter events">{[['all', 'All events'], ['open', 'Open now'], ['past', 'Past events']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>
@@ -75,7 +71,6 @@ export function Journal({ motion }) {
   const scene = useAmbientScene(motion);
   return <section ref={scene} className="release-journal release-chapter" id="journal" aria-labelledby="journal-heading">
     <PetalAtmosphere variant="journal-art" />
-    <BloomFinale variant="journal" motion={motion} />
     <div className="chapter-head"><p className="chapter-kicker">The Hyperbloom journal</p><h2 id="journal-heading">Stay curious.</h2><p className="chapter-lead">Ideas, tools, and fresh perspectives from the community.</p></div>
     <div className="journal-preview">{articles.slice(0, 2).map(article => <ArticleEntry key={article.href} article={article} level={3} />)}</div>
     <div className="chapter-action"><Button href="/blog" secondary>Explore all articles</Button></div>
@@ -86,7 +81,6 @@ export function About({ motion }) {
   const scene = useAmbientScene(motion);
   return <section ref={scene} className="release-about release-chapter" id="about" aria-labelledby="about-heading">
     <PetalAtmosphere variant="about-art" />
-    <BloomFinale variant="about" motion={motion} />
     <div className="chapter-head"><p className="chapter-kicker">Our mission</p><h2 id="about-heading">For high schoolers.<br />By high schoolers.</h2><p className="chapter-lead serif">Room to create, learn new skills, and build with people who understand your ambition.</p></div>
     <div className="mission-statement"><p>Give high school students the space to collaborate and turn curiosity into useful ideas.</p><TextLink href={links.discord} external>Meet the community</TextLink></div>
     <div className="release-team"><div className="team-intro"><p className="chapter-kicker">The people behind the bloom</p><h3>Students building <span className="serif">for students.</span></h3></div><div className="release-team-list">{founders.map((person, index) => <article key={person.name}><span className="team-index" aria-hidden="true">0{index + 1}</span><div><h4>{person.name}</h4><p>{person.bio}</p><details className="team-profile"><summary><span className="bio-open-label">Read full bio</span><span className="bio-close-label">Hide full bio</span><Plus size={18} aria-hidden="true" /></summary><div>{teamProfiles[index].map(p => <p key={p}>{p}</p>)}</div></details></div></article>)}</div></div>
@@ -132,7 +126,6 @@ export function Footer({ motion, compact = false, controls }) {
         <p className="contact-origin-note">These links reach Hyperbloom, not this mockup’s creator. <a href="/terms#rights-contact">Contact the creator about this prototype</a>.</p>
         {!compact && <div className="closing-buttons"><Button href="/#october">Explore October</Button><p>{state === 'closed' ? 'Submissions closed' : 'Submit by'} Oct 19, 2026 · 5 PM EDT</p></div>}
       </div>
-      {!compact && <BloomFinale variant="closing" motion={motion} />}
     </section>
     <div className="release-footer-main"><div className="release-footer-brand"><a href="/#home" className="brand"><img src="/brand/hyperbloom-mark.svg" alt="" /><span>Hyperbloom Hacks</span></a><p>Empower. Engage. Innovate.</p></div><nav aria-label="Footer navigation"><a href="/#events">Events</a><a href="/#journey">What we offer</a><a href="/blog">Blog</a><a href="/gallery">Gallery</a><a href="/#about">Mission &amp; team</a><a href="/#questions">Questions</a></nav><div className="footer-social-links"><a href={links.instagram} target="_blank" rel="noopener noreferrer"><InstagramLogo size={21} aria-hidden="true" />Instagram</a><a href={links.linkedin} target="_blank" rel="noopener noreferrer"><LinkedinLogo size={21} aria-hidden="true" />LinkedIn</a><a href="/#home"><ArrowUp size={20} aria-hidden="true" />Back to top</a></div></div>
     <aside className="prototype-disclosure" aria-label="Independent project disclaimer"><p><strong>Independent design mockup by Victor Velazquez.</strong> Victor does not own Hyperbloom Hacks. This concept is not affiliated with, sponsored by or endorsed by Hyperbloom Hacks or the organizations shown. Hyperbloom branding, original content and third-party marks belong to their respective owners.</p><nav aria-label="Legal and project information"><a href="/terms">Terms &amp; disclaimer</a><a href="/terms#privacy">Privacy notice</a><a href="/terms#rights-contact">Rights &amp; creator contact</a></nav></aside>

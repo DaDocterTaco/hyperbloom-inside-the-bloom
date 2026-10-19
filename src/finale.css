@@ -1,9 +1,4 @@
-/* The homepage stays inside the bloom; secondary pages keep their quiet petals. */
-.home-scene .continuity-vault { position: absolute; inset: -8% -3%; transform: translate3d(0,calc(var(--bloom-right-y,0px) * .18),0) scale(var(--bloom-scale,1.04)); transform-origin: 50% 65%; will-change: transform; }
-.continuity-vault img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
-.home-scene .continuity-left, .home-scene .continuity-right { display: none; }
-.home-scene .continuity-light { z-index: 1; opacity: .55; }
-.home-scene .continuity-quiet { z-index: 2; background: linear-gradient(90deg,transparent 3%,#f7f5ef08 9%,#f7f5efad 20%,#f7f5eff2 29%,#f7f5effa 40%,#f7f5effa 60%,#f7f5eff2 71%,#f7f5efad 80%,#f7f5ef08 91%,transparent 97%); }
+/* Quiet side petals frame both the homepage and secondary reading paths. */
 .home-experience .release-chapter { padding-block: 78px; }
 .home-experience .chapter-head { max-width: 760px; }
 .home-experience .chapter-head::before { height: 30px; margin-bottom: 22px; }
@@ -53,18 +48,9 @@
 .premium-experience .sponsor-group img[src*='9d5140'] { width: 136px; height: 60px; max-width: 136px; max-height: 60px; object-fit: cover; }
 .premium-experience .sponsor-group img[src*='ecca4a'] { width: 110px; height: 55px; max-width: 110px; max-height: 55px; object-fit: cover; }
 
-@media(min-width:1700px) {
-  .home-scene .continuity-vault { inset-inline: calc(50% - 1000px); }
-}
-@media(max-width:900px) {
-  .home-scene .continuity-vault { inset: -6% -24%; }
-  .home-scene .continuity-quiet { background: linear-gradient(90deg,transparent,#f7f5efb5 12%,#f7f5eff2 24%,#f7f5eff7 34%,#f7f5eff7 66%,#f7f5eff2 76%,#f7f5efb5 88%,transparent); }
-}
 @media(max-width:600px) {
   .home-experience .release-chapter { padding-block: 52px; }
   .home-experience .release-community { padding-top: 25px; }
-  .home-scene .continuity-vault { inset: -6% -4%; }
-  .home-scene .continuity-quiet { background: linear-gradient(90deg,#f7f5ef14,#f7f5efc9 12%,#f7f5eff2 24%,#f7f5eff5 38%,#f7f5eff5 62%,#f7f5eff2 76%,#f7f5efc9 88%,#f7f5ef14); }
   .home-experience .community-winner { max-width: 270px; }
   .home-experience .release-event-list { padding: 0; }
   .home-experience .release-event.featured { margin-inline: 0; padding: 23px 20px; }
@@ -81,5 +67,3 @@
   .premium-experience .blog-catalogue { padding-inline: 24px; }
   .premium-experience .blog-results { padding-inline: 16px; }
 }
-html[data-motion='off'] .continuity-vault { transform: none; will-change: auto; }
-@media(prefers-reduced-motion:reduce) { .continuity-vault { transform: none !important; will-change: auto; } }

@@ -4,7 +4,7 @@ Checked October 19, 2026 before the 5 PM EDT deadline.
 
 ## Automated checks
 
-- `npm test`: 29 passing tests. Covers hero, benefits and lower chapter-based petal motion bounds and exact reversal, paused poses, original article routing, search normalization, event filters and the precise submission cutoff, calendar output, plus the retained worker/static packaging behavior.
+- `npm test`: 25 passing tests. Covers hero and benefits motion bounds and exact reversal, original article routing, search normalization, event filters and the precise submission cutoff, calendar output, plus the retained worker/static packaging behavior.
 - `npm run build`: production compilation succeeds.
 - `npm run check:release`: verifies all compiled image/font/script/style references, dynamically assembled partner logos, the Firebase public output and SPA fallback, and exclusion of private/development content. The source PNG fallback for the hero is retained.
 - The October 19 project-notice update also verifies `/terms` routing (including a trailing slash and unknown subpath), readable 320px Terms layout, direct refresh, privacy navigation, all-page footer disclosures and the separate creator-contact path. Live validation checks 13 direct routes and 64 exact-match build assets. Drafting is not an attorney review or a guarantee of legal protection.
@@ -21,7 +21,7 @@ The compiled build was checked for direct reader refresh, search, ribbon keyboar
 
 ## Public release checks
 
-The public Firebase release passed `npm run check:live`: all 13 direct app routes return the current app shell, and all 65 checked scripts, styles, fonts, images and the calendar match the local production bytes. HTML revalidation and immutable caching for hashed bundles are verified. See [live deployment evidence](LIVE-CHECK.md).
+The public Firebase release passed `npm run check:live`: all 11 direct app routes return the current app shell, and all 64 checked scripts, styles, fonts, images and the calendar match the local production bytes. HTML revalidation and immutable caching for hashed bundles are verified. See [live deployment evidence](LIVE-CHECK.md).
 
 The deployed browser session additionally passed search and query refresh, direct reader refresh, partner pause/keyboard access, phone navigation and contact arrival, pause persistence, and both original video streams reaching readyState 4. No browser console errors were observed. The Discord invitation resolves to the genuine Hyperbloom community without requiring this test to join or create an account.
 
