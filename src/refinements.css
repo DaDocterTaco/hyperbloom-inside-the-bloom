@@ -1,0 +1,357 @@
+/* Approved October refinement: a continuous scene, with a quieter reading spine. */
+:root { --reading-ink: #344463; }
+:is(#events, #about, #questions, #contact, #showcase, #journal, [id^='v1-'], .article-body section) { scroll-margin-top: 100px; }
+#eligibility-answer { scroll-margin-top: 100px; }
+#eligibility-answer:focus { outline: none; }
+.footer-utility { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; padding: 9px 4px; background: transparent; font-size: 13px; line-height: 1.4; color: #43516b; border-radius: 5px; }
+.footer-utility:hover { color: var(--blue); }
+.footer-utility:disabled { cursor: default; }
+.menu-utilities { border-top: 1px solid var(--line); padding-top: 10px; }
+
+/* Preserve the layered, reversible hero while exposing the next real action. */
+.bloom-chapter { --hero-height: clamp(970px, 100vw, 1420px); }
+.hero-actions { display: grid; grid-template-columns: max-content max-content; grid-template-areas: 'primary secondary' 'deadline deadline'; align-items: center; justify-content: center; gap: 12px 28px; margin-top: 26px; }
+.hero-actions > .button { grid-area: primary; }
+.hero-actions > .hero-all-events { grid-area: secondary; }
+.hero-actions > .hero-deadline { grid-area: deadline; }
+.bloom-chapter .hero-actions .button { margin-top: 0; min-width: 212px; }
+.hero-all-events { min-height: 44px; display: inline-flex; gap: 10px; align-items: center; color: #344463; font-size: 15px; }
+.hero-all-events:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 5px; }
+.bloom-chapter .hero-deadline { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto; max-width: 560px; padding: 0 16px; color: #19243c; font-size: 14px; line-height: 1.65; }
+.hero-deadline svg { flex-shrink: 0; }
+.bloom-chapter .event-facts { margin-bottom: 0; }
+.bloom-chapter .challenge-content > .section-description { margin-top: 20px; }
+.bloom-chapter .event-dates { margin: 16px auto 24px; font-size: 14px; color: #43516b; }
+.bloom-chapter .challenge-content > .button { width: fit-content; max-width: calc(100% - 32px); padding: 16px 24px; min-height: 56px; font-size: 17px; gap: 22px; white-space: normal; }
+.challenge-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0 24px; margin-top: 8px; }
+.bloom-chapter .challenge-links .quiet-link { margin: 0; font-size: 13px; padding-inline: 2px; }
+.eligibility-note { margin: 8px auto 0; font-size: 12px; line-height: 1.6; color: #536079; padding-inline: 24px; }
+.bloom-chapter .section-thread { height: 40px; }
+
+/* The same bloom holds real people, rather than a decorative placeholder. */
+.release-chapter { padding-block: 80px; }
+.chapter-head h2 { font-size: clamp(42px, 4.5vw, 64px); }
+.chapter-lead { margin-top: 20px; }
+.release-community { padding-top: 22px; padding-bottom: 76px; }
+.release-community .chapter-head h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(52px, 5.2vw, 74px); }
+.release-community .chapter-kicker { margin-bottom: 12px; }
+.release-community .chapter-lead { margin-top: 12px; }
+.community-winner { position: relative; max-width: 348px; margin: 32px auto 0; text-align: center; }
+.community-winner button { display: block; width: 100%; padding: 0; background: transparent; border-radius: 15px; overflow: hidden; }
+.community-winner img { display: block; width: 100%; height: auto; }
+.community-winner figcaption { margin-top: 15px; font-size: 15px; line-height: 1.6; }
+.release-community .chapter-action { margin-top: 20px; }
+.community-links { margin-top: 14px; flex-wrap: wrap; gap: 0 28px; }
+.community-links .release-text-link { font-size: 14px; }
+.community-art .chapter-petal { width: 62%; top: 3%; opacity: .72; }
+.community-art .left { left: -43%; }
+.community-art .right { right: -43%; }
+.release-community .chapter-art { mask-image: linear-gradient(transparent, #000 20%, #000 80%, transparent); }
+
+/* One readable edge for the current event and its compact archive. */
+.release-events { padding-top: 68px; padding-bottom: 76px; }
+.release-events .chapter-lead { max-width: 650px; }
+.release-filters { margin-top: 28px; }
+.result-count { margin-top: 19px; }
+.release-event-list { max-width: 920px; }
+.release-event.featured { padding: 30px 32px 20px; border-radius: 17px; background: #fcf9f2f5; }
+.release-event.featured h3 { font-size: 40px; font-weight: 750; }
+.release-event .featured-theme { font-size: 32px; line-height: 1.15; color: var(--ink); margin-top: 8px; }
+.release-event-body .release-event-deadline { margin-top: 22px; font-size: 16px; color: #1c2942; }
+.release-event .event-primary { margin-top: 22px; }
+.release-event .event-resources { border-top: 0; margin-top: 5px; padding-top: 0; }
+.past-challenges-heading { margin: 35px 0 8px; font-size: 29px; letter-spacing: -.035em; }
+.release-event:not(.featured) { padding: 20px 2px; background: #f7f5efdd; }
+.release-event:not(.featured) h3 { font-size: 25px; }
+.release-event:not(.featured) .release-event-meta { margin-bottom: 8px; }
+.release-event:not(.featured) .release-event-status { font-size: 12px; }
+.release-event:not(.featured) .event-resources { margin-top: 0; }
+.release-event:not(.featured) .event-resources .release-text-link { padding-block: 2px; min-height: 36px; }
+.release-event:not(.featured) .event-destination { font-size: 13px; }
+.events-art .chapter-petal { opacity: .6; }
+
+/* Reading and organization chapters share the scene, without repeated overtures. */
+.release-journal { background: var(--ivory); padding-block: 70px; }
+.journal-preview { margin-top: 34px; max-width: 850px; }
+.journal-entry :is(h2,h3) { font-size: 30px; }
+.journal-entry > p { font-size: 17px; }
+.release-about { padding-top: 75px; padding-bottom: 55px; }
+.release-about .chapter-head .chapter-lead { font-size: 26px; max-width: 700px; line-height: 1.4; }
+.mission-statement { margin-top: 20px; max-width: 640px; }
+.release-team { max-width: 920px; display: block; padding-top: 32px; margin-top: 42px; }
+.team-intro { text-align: center; margin-bottom: 26px; }
+.team-intro h3 { font-size: 32px; }
+.team-intro .chapter-kicker { margin-bottom: 10px; }
+.release-team-list article { padding-block: 24px; gap: 24px; }
+.release-team-list article:first-child { padding-top: 24px; border-top: 1px solid var(--line); }
+.release-team-list article > div { flex: 1; min-width: 0; }
+.release-team-list h4 { font-size: 26px; }
+.release-team-list p { font-size: 17px; }
+.team-profile { margin-top: 5px; }
+.team-profile summary { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; list-style: none; color: var(--blue); font-size: 14px; }
+.team-profile summary::-webkit-details-marker { display: none; }
+.team-profile .bio-close-label, .team-profile[open] .bio-open-label { display: none; }
+.team-profile[open] .bio-close-label { display: inline; }
+.team-profile[open] summary svg { transform: rotate(45deg); }
+.team-profile > div { border-left: 1px solid #c3a66c; padding-left: 22px; margin: 8px 0 12px; max-width: 730px; }
+.team-profile > div p { font-size: 16px; line-height: 1.8; }
+.team-profile > div p + p { margin-top: 15px; }
+.team-source { max-width: 920px; margin: 18px auto 0; color: #536079; font-size: 12px; line-height: 1.7; text-align: center; }
+.team-source a { display: inline-flex; gap: 5px; align-items: center; min-height: 34px; color: var(--blue); }
+.release-partners { padding-block: 30px 36px; border-top: 0; }
+.release-partners img { opacity: 1; filter: none; }
+.release-partners a[aria-label='Y2 Labs'] img { filter: brightness(.5); }
+.release-partners .chapter-kicker { margin-bottom: 22px; }
+.release-questions { padding-top: 72px; padding-bottom: 28px; }
+.release-questions .chapter-head h2 { font-size: clamp(37px, 4.3vw, 58px); }
+.release-faq { max-width: 850px; margin-top: 28px; }
+.release-faq details { margin-bottom: 10px; border: 1px solid var(--line); border-radius: 12px; padding-inline: 23px; background: #fbf9f44d; }
+.release-faq summary { min-height: 72px; padding-block: 21px; font-weight: 550; }
+.release-faq details[open] { background: #fcfaf5; }
+.release-faq details > div { padding-right: 22px; }
+
+/* Contact begins at the actual methods. Utility controls never cover page content. */
+.release-closing { min-height: 0; padding: 64px 28px 90px; background: transparent; }
+.closing-copy { max-width: 850px; }
+.closing-copy h2 { font-size: clamp(54px, 6.7vw, 92px); }
+.closing-copy > .contact-subtitle.serif { margin-top: 21px; font-size: 38px; color: var(--ink); line-height: 1.1; }
+.closing-contact-methods { display: flex; align-items: center; flex-direction: column; gap: 5px; margin-top: 20px; }
+.closing-contact-methods a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; color: var(--blue); font-size: 16px; text-decoration: underline; text-underline-offset: 4px; line-height: 1.5; overflow-wrap: anywhere; }
+.closing-contact-methods > div > p { margin: 0; font-size: 12px; color: #536079; line-height: 1.6; }
+.closing-buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; gap: 15px 24px; margin-top: 30px; }
+.closing-buttons > p { font-size: 13px; line-height: 1.6; color: #344463; }
+.closing-art .chapter-petal { top: 0; width: 52%; opacity: .9; }
+.closing-art .left { left: -17%; }
+.closing-art .right { right: -17%; }
+.closing-art::before { content: ''; position: absolute; inset: 0; background: url('/art/bloom-scene.webp') center 58% / cover no-repeat; opacity: .9; transform: scale(calc(1.02 + var(--scene-progress) * .035)); }
+.closing-art .chapter-petal { display: none; }
+.closing-art { mask-image: linear-gradient(90deg,#000,transparent 27%,transparent 73%,#000),linear-gradient(transparent,#000 25%,#000 70%,transparent); mask-composite: intersect; }
+.release-footer-main { padding-block: 36px; grid-template-columns: 1.3fr 1fr .8fr; gap: 35px; }
+.release-footer-main nav { flex-flow: row wrap; align-content: flex-start; column-gap: 22px; }
+.release-footer-main nav a { font-size: 13px; }
+.footer-social-links { display: flex; flex-direction: column; gap: 0; align-items: flex-start; }
+.footer-social-links a { display: flex; align-items: center; gap: 11px; min-height: 44px; font-size: 13px; }
+.footer-social-links a:hover { color: var(--blue); }
+.release-footer-bottom { padding-bottom: 22px; }
+.footer-utilities { display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; }
+.compact-contact { padding-block: 50px 40px; border-top: 1px solid var(--line); }
+.compact-contact .chapter-kicker { margin-bottom: 12px; }
+.compact-contact .closing-copy h2 { font-size: 38px; }
+.compact-contact .closing-contact-methods { margin-top: 15px; }
+
+/* Local readers: genuine attribution, a quiet measure and unambiguous source access. */
+.article-intro { position: relative; isolation: isolate; padding: 128px 28px 0; overflow: clip; }
+.article-intro > .chapter-art { z-index: -1; mask-image: linear-gradient(#000,transparent 85%); }
+.article-intro .chapter-petal { top: 0; opacity: .55; }
+.article-heading-wrap { max-width: 850px; margin: auto; }
+.article-breadcrumb { display: flex; flex-wrap: wrap; gap: 10px; color: #536079; font-size: 13px; text-transform: capitalize; }
+.article-breadcrumb a { min-height: 30px; }
+.article-breadcrumb a:hover { color: var(--blue); }
+.reading-meter { display: flex; align-items: center; gap: 18px; margin: 20px 0 35px; }
+.reading-meter progress { width: 100%; height: 3px; appearance: none; border: 0; background: #deddd6; color: var(--blue); }
+.reading-meter progress::-webkit-progress-bar { background: #deddd6; }
+.reading-meter progress::-webkit-progress-value { background: var(--blue); }
+.reading-meter progress::-moz-progress-bar { background: var(--blue); }
+.reading-meter > span { flex-shrink: 0; font-size: 12px; color: #536079; font-variant-numeric: tabular-nums; }
+.article-intro h1 { font-size: clamp(40px, 4.8vw, 67px); line-height: 1.06; letter-spacing: -.05em; font-weight: 780; }
+.article-deck { margin-top: 25px; color: #344463; font-size: 31px; line-height: 1.3; }
+.article-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; margin-top: 27px; font-size: 12px; color: #536079; }
+.article-page .article-meta { letter-spacing: 0; text-transform: none; }
+.article-meta a, .reader-origin a { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; }
+.article-meta > span { display: inline-flex; align-items: center; }
+.reader-origin { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 15px 0; margin-top: 15px; font-size: 12px; line-height: 1.6; color: #536079; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 20px; }
+.reader-origin a { color: var(--blue); }
+.article-body { max-width: 794px; margin: 0 auto; padding: 30px 28px 72px; }
+.article-contents { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-bottom: 35px; }
+.article-contents > span { font-size: 10px; letter-spacing: .15em; color: #536079; width: 100%; margin-bottom: 4px; }
+.article-contents a { display: flex; align-items: center; color: var(--blue); min-height: 40px; font-size: 13px; }
+.article-body > section { padding-bottom: 30px; }
+.article-body h2 { font-size: 32px; line-height: 1.2; font-weight: 720; }
+.article-body section > p { font-size: 19px; line-height: 1.85; color: #28354d; margin-top: 17px; }
+.article-source-note { padding: 23px 0; margin-top: 8px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.article-source-note p { font-size: 15px; line-height: 1.7; color: #536079; }
+.reader-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 20px; }
+.manual-share { display: flex; flex-direction: column; gap: 7px; margin-top: 15px; font-size: 13px; color: #536079; }
+.manual-share input { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 7px; background: #fbf9f4; color: var(--ink); }
+.next-article { display: flex; justify-content: space-between; align-items: center; gap: 22px; margin: 32px 0 13px; padding: 23px; border: 1px solid var(--line); border-radius: 12px; }
+.next-article small { display: block; margin-bottom: 10px; color: #536079; font-size: 10px; letter-spacing: .15em; }
+.next-article strong { font-size: 18px; line-height: 1.5; }
+.next-article:hover { color: var(--blue); border-color: #b6abfa; }
+.api-exchange { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 25px 0 0; text-align: center; padding: 25px 12px 15px; border: 1px solid #ded4bf; border-radius: 12px; }
+.api-exchange > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; font-size: 15px; }
+.api-exchange .exchange-label { gap: 0; font-size: 11px; color: #536079; }
+.exchange-label svg { color: #b48a31; }
+.api-exchange figcaption { grid-column: 1/-1; color: #536079; font-size: 12px; line-height: 1.6; }
+
+/* The genuine announcement anchors the collection. Both source films remain playable. */
+.v1-page .page-intro { padding-bottom: 25px; }
+.v1-story { max-width: 1040px; margin: auto; padding: 0 28px; }
+.v1-winner-feature { display: grid; grid-template-columns: .9fr 1fr; align-items: center; gap: 48px; padding: 20px 0 40px; }
+.v1-winner-feature .winner-image-button { padding: 0; margin: 0; background: transparent; }
+.v1-winner-feature .winner-image-button > img { height: auto; width: 100%; max-width: 370px; border-radius: 12px; }
+.v1-winner-feature .gallery-section-heading h2 { font-size: 32px; }
+.winner-name { font-size: 70px; line-height: 1.15; }
+.v1-recording { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; border-top: 1px solid var(--line); padding: 30px 0; }
+.recording-preview { position: relative; aspect-ratio: 16/9; background: #11182f; overflow: hidden; border-radius: 13px; }
+.recording-preview > img { width: 100%; height: 100%; object-fit: contain; opacity: .55; }
+.recording-preview > button { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; width: 100%; background: transparent; color: white; font-size: 15px; }
+.recording-preview > button:hover { background: #00000030; }
+.recording-preview > button > svg { width: 58px; height: 58px; padding: 16px; border: 1px solid #ffffffa0; border-radius: 50%; background: var(--blue); }
+.gallery-section-heading .recording-duration { font-weight: 600; color: #43516b; margin-top: 8px; }
+.recording-access-note { font-size: 12px; line-height: 1.7; color: #536079; padding-top: 10px; }
+.v1-bottom { padding-top: 10px; }
+.gallery-entry-image { aspect-ratio: 16/6; background: #e8e2d6; }
+.gallery-entry-image img { object-fit: contain; opacity: 1; }
+.gallery-entry-image > span { background: transparent; justify-items: end; padding-right: 35px; }
+.gallery-entry-image > span svg { color: var(--blue); border-color: #3022f530; background: #f7f5efdf; }
+
+@media(max-width:1150px) {
+  .release-footer-main,.release-footer-bottom { margin-inline: 32px; }
+  .hero-actions { grid-template-columns: 1fr; grid-template-areas: 'primary' 'deadline' 'secondary'; justify-items: center; gap: 5px; }
+}
+@media(min-width:1100px) { .article-intro h1 { font-size: 80px; } }
+@media(max-width:900px) {
+  .release-chapter { padding-block: 65px; }
+  .release-community { padding-top: 20px; }
+  .v1-winner-feature { gap: 30px; }
+  .release-footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-social-links { grid-column: 1/-1; flex-direction: row; flex-wrap: wrap; gap: 8px 26px; }
+  .release-footer-bottom { flex-wrap: wrap; gap: 8px 20px; }
+  .footer-utilities { margin-left: auto; }
+}
+@media(max-width:760px) {
+  .bloom-chapter { --hero-height: clamp(650px, 174vw, 950px); }
+  .bloom-chapter .bloom-scene-window, .bloom-chapter .hero-static-art { inset: 80px -50% -90px; }
+  .bloom-chapter .hero-intro { margin-top: 40px; }
+  .bloom-chapter[data-motion='on'] .hero-intro { transform: translate3d(0, calc(var(--bloom-follow) * .3px), 0); }
+  .hero-actions { grid-template-columns: 1fr; grid-template-areas: 'primary' 'deadline' 'secondary'; justify-items: center; gap: 4px; margin-top: 24px; }
+  .hero-actions .hero-all-events { margin-top: 0; font-size: 14px; }
+  .bloom-chapter .hero-deadline { margin-top: 3px; font-size: 12px; max-width: 380px; padding-inline: 18px; gap: 8px; }
+  .bloom-chapter .hero-actions .button { width: min(270px, calc(100vw - 60px)); max-width: 100%; font-size: 16px; min-height: 54px; }
+  .bloom-chapter .challenge-content > .button { width: fit-content; max-width: calc(100vw - 48px); font-size: 15px; padding: 15px 19px; gap: 12px; white-space: normal; }
+  .bloom-chapter .october { margin-top: -65px; padding-top: 15px; }
+  .bloom-chapter .challenge-content > .event-dates { margin-block: 12px 20px; font-size: 13px; }
+  .challenge-links { gap: 0 20px; }
+  .bloom-chapter .challenge-links .quiet-link { font-size: 12px; }
+  .eligibility-note { font-size: 11px; }
+  .bloom-chapter .section-thread { height: 25px; }
+  .article-intro { padding-top: 110px; }
+  .article-intro h1 { font-size: clamp(36px,7vw,54px); }
+  .article-deck { font-size: 27px; }
+  .v1-recording { gap: 26px; }
+  .winner-name { font-size: 56px; }
+}
+@media(max-width:600px) {
+  .bloom-chapter .hero-content { padding-top: 90px; }
+  .bloom-chapter .hero h1 { font-size: 51px; }
+  .bloom-chapter .hero-intro > p { font-size: 16px; max-width: 300px; margin: 17px auto 0; line-height: 1.5; }
+  .bloom-chapter .hero-intro { margin-top: 26px; }
+  .bloom-chapter .motto { letter-spacing: .3em; }
+  .hero-actions { margin-top: 20px; }
+  .release-chapter { padding: 54px 25px; }
+  .release-community { padding-top: 10px; }
+  .release-community .chapter-head h2 { font-size: 48px; }
+  .release-community .chapter-lead { font-size: 16px; }
+  .community-winner { max-width: 260px; margin-top: 24px; }
+  .community-winner figcaption { font-size: 14px; }
+  .community-links { flex-direction: column; align-items: center; gap: 0; }
+  .community-links .release-text-link { font-size: 13px; }
+  .release-community .chapter-action { margin-top: 16px; }
+  .community-art .chapter-petal { width: 110%; }
+  .community-art .chapter-petal.left { left: -96%; }
+  .community-art .chapter-petal.right { right: -96%; }
+  .release-community .chapter-art::before { opacity: .4; mask-image: linear-gradient(90deg,#000,transparent 9%,transparent 91%,#000); }
+  .release-events .chapter-head h2 { font-size: 41px; }
+  .release-filters button { padding-inline: 17px; }
+  .release-event.featured { padding: 24px 20px 17px; }
+  .release-event.featured h3 { font-size: 31px; }
+  .release-event .featured-theme { font-size: 29px; }
+  .release-event-body .release-event-deadline { font-size: 14px; margin-top: 17px; }
+  .release-event .event-primary { padding: 13px 16px; font-size: 14px; gap: 10px; margin-top: 18px; }
+  .release-event:not(.featured) h3 { font-size: 25px; }
+  .release-event:not(.featured) .release-event-body { gap: 5px; }
+  .release-event:not(.featured) .event-destination { min-height: 36px; }
+  .past-challenges-heading { font-size: 27px; margin-top: 30px; }
+  .release-event:not(.featured) .event-resources { gap: 4px 20px; }
+  .journal-entry :is(h2,h3) { font-size: 26px; }
+  .release-about .chapter-head h2 { font-size: 39px; }
+  .release-about .chapter-head .chapter-lead { font-size: 25px; }
+  .mission-statement p { font-size: 16px; }
+  .team-intro h3 { font-size: 29px; }
+  .release-team-list article { gap: 14px; padding-block: 23px; }
+  .release-team-list h4 { font-size: 25px; }
+  .release-team-list p { font-size: 16px; }
+  .team-profile > div { padding-left: 16px; }
+  .team-profile > div p { font-size: 15px; }
+  .release-partners { margin-inline: 25px; }
+  .release-questions .chapter-head h2 { font-size: 39px; }
+  .release-faq details { padding-inline: 17px; border-radius: 10px; }
+  .release-faq summary { font-size: 16px; }
+  .release-faq details > div { padding-right: 0; }
+  .release-closing { padding: 40px 25px 64px; min-height: 0; }
+  .closing-copy h2 { font-size: 50px; line-height: 1.01; }
+  .closing-copy > .contact-subtitle.serif { font-size: 30px; margin-top: 18px; max-width: none; }
+  .closing-contact-methods { margin-top: 15px; gap: 3px; }
+  .closing-contact-methods a { font-size: 13px; gap: 8px; }
+  .closing-contact-methods > div > p { font-size: 11px; max-width: 270px; margin: auto; }
+  .closing-buttons { flex-direction: column; gap: 12px; margin-top: 25px; }
+  .closing-buttons .release-button { max-width: 100%; }
+  .closing-buttons > p { font-size: 12px; }
+  .closing-art .chapter-petal { width: 110%; top: 14%; }
+  .closing-art .chapter-petal.left { left: -88%; }
+  .closing-art .chapter-petal.right { right: -88%; }
+  .closing-art { mask-image: linear-gradient(90deg,#000,transparent 12%,transparent 88%,#000),linear-gradient(transparent,#000 20%,#000 80%,transparent); mask-composite: intersect; }
+  .release-footer-main { margin-inline: 25px; grid-template-columns: 1fr; gap: 23px; padding-block: 30px; }
+  .release-footer-main nav { gap: 0 24px; }
+  .footer-social-links { grid-column: auto; flex-direction: row; gap: 0 24px; }
+  .release-footer-bottom { margin-inline: 25px; font-size: 10px; }
+  .footer-utilities { width: 100%; margin: 0; gap: 10px 20px; }
+  .compact-contact .closing-copy h2 { font-size: 32px; }
+  .article-intro { padding: 108px 25px 0; }
+  .reading-meter { margin: 15px 0 27px; }
+  .article-intro h1 { font-size: 38px; }
+  .article-deck { margin-top: 20px; font-size: 26px; }
+  .article-meta { margin-top: 20px; gap: 0 13px; }
+  .reader-origin { font-size: 12px; }
+  .article-body { padding: 25px 25px 50px; }
+  .article-contents { flex-direction: column; gap: 0; margin-bottom: 25px; }
+  .article-contents a { min-height: 36px; }
+  .article-body h2 { font-size: 28px; }
+  .article-body section > p { font-size: 18px; line-height: 1.8; }
+  .article-body > section { padding-bottom: 26px; }
+  .next-article { padding: 19px; gap: 17px; }
+  .next-article strong { font-size: 17px; }
+  .api-exchange { gap: 9px; padding-inline: 8px; }
+  .api-exchange > div { font-size: 13px; }
+  .v1-page .page-intro { padding-bottom: 20px; }
+  .v1-story { padding-inline: 25px; }
+  .v1-winner-feature { display: flex; flex-direction: column; align-items: stretch; gap: 22px; padding-top: 10px; }
+  .v1-winner-feature .winner-image-button { max-width: 290px; align-self: center; }
+  .v1-winner-feature .gallery-section-heading h2 { font-size: 27px; }
+  .winner-name { font-size: 53px; }
+  .v1-recording { grid-template-columns: 1fr; gap: 22px; padding-block: 28px; }
+  .recording-preview > button { gap: 8px; font-size: 14px; }
+  .recording-access-note { font-size: 11px; }
+  .gallery-entry-image { aspect-ratio: 4/3; }
+  .gallery-entry-image > span { padding-right: 15px; }
+}
+@media(max-width:360px) {
+  .bloom-chapter .bloom-scene-window, .bloom-chapter .hero-static-art { inset-inline: -70%; bottom: -160px; }
+  .bloom-chapter .hero-intro { margin-top: 25px; }
+  .bloom-chapter .hero-deadline { font-size: 12px; max-width: 280px; padding-inline: 8px; }
+  .bloom-chapter .hero-intro > p:not(.hero-deadline) { font-size: 16px; max-width: 270px; }
+  .bloom-chapter .challenge-content > .button { font-size: 14px; padding-inline: 14px; }
+  .release-filters button { padding-inline: 13px; }
+  .release-events .chapter-head h2 { font-size: 36px; }
+  .release-event.featured { padding-inline: 16px; }
+  .release-event.featured h3 { font-size: 28px; }
+  .release-event .event-primary { padding-inline: 12px; font-size: 13px; }
+  .closing-copy h2 { font-size: 44px; }
+  .closing-contact-methods a { font-size: 12px; }
+  .closing-contact-methods a svg { width: 17px; }
+  .article-intro h1 { font-size: 34px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .team-profile summary svg { transition: none; }
+  .closing-art::before { transform: none; }
+}

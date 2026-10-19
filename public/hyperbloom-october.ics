@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hyperbloom Redesign//Submission Deadline//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:hyperbloom-october-2026-deadline@hyperbloomhacks.com
+DTSTAMP:20261019T150000Z
+DTSTART:20261019T210000Z
+DTEND:20261019T211500Z
+SUMMARY:Hyperbloom October submission deadline
+DESCRIPTION:Submit on Devpost by 5 PM EDT. Check the official event rules.
+URL:https://hyperbloom-october.devpost.com/
+END:VEVENT
+END:VCALENDAR

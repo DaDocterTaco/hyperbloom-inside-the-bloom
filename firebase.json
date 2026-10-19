@@ -1,0 +1,51 @@
+{
+  "hosting": {
+    "public": "dist/client",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "art/bloom-sculpture-v1.png",
+      "art/journey-interior-*.png",
+      "art/petals-*.png",
+      "art/event-stage*.png",
+      "art/bloom-atmosphere.png",
+      "art/bloom-center.png",
+      "art/bloom-foreground.png",
+      "art/journey-interior-desktop-v1.webp",
+      "art/journey-interior-mobile-v1.webp"
+    ],
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        ]
+      },
+      {
+        "source": "/assets/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      },
+      {
+        "source": "/art/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600" }
+        ]
+      },
+      {
+        "source": "/hyperbloom-october.ics",
+        "headers": [
+          { "key": "Content-Type", "value": "text/calendar; charset=utf-8" },
+          { "key": "Content-Disposition", "value": "attachment; filename=hyperbloom-october.ics" }
+        ]
+      }
+    ]
+  }
+}
