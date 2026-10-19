@@ -4,6 +4,7 @@ import { articlePath, articles, events, faq, founders, links, teamProfiles } fro
 import { eventIsOpen, octoberState, selectArticles, selectEvents } from './siteLogic.mjs';
 import { useAmbientScene, useClock } from './experienceHooks';
 import { useMedia } from './MediaDialog';
+import { FlowerAccent } from './FlowerAccent';
 
 function Button({ href, children, secondary = false, ...props }) {
   return <a href={href} className={secondary ? 'release-button secondary' : 'release-button'} {...props}>{children}<ArrowRight size={21} aria-hidden="true" /></a>;
@@ -26,7 +27,7 @@ export function Community({ motion }) {
   const { open } = useMedia();
   return <section ref={scene} className="release-community release-chapter" id="showcase" aria-labelledby="community-heading">
     <PetalAtmosphere variant="community-art" />
-    <div className="chapter-head"><p className="chapter-kicker">Our first chapter</p><h2 id="community-heading" className="serif">The first bloom.</h2><p className="chapter-lead">A real community. A first chapter worth remembering.</p></div>
+    <div className="chapter-head has-flower"><FlowerAccent variant="first" /><p className="chapter-kicker">Our first chapter</p><h2 id="community-heading" className="serif">The first bloom.</h2><p className="chapter-lead">A real community. A first chapter worth remembering.</p></div>
     <figure className="community-winner"><button onClick={event => open('winner', event)} aria-label="View full winner announcement"><img src="/source/v1-winner.avif" alt="Original Hyperbloom V1 announcement congratulating Deep" width="464" height="620" loading="lazy" /></button><figcaption>Deep · Hyperbloom V1 winner</figcaption></figure>
     <div className="chapter-action"><Button href="/v1-gallery">Explore the V1 gallery</Button></div>
     <div className="community-links"><button className="release-text-link" onClick={event => open('recap', event)}><Play size={17} aria-hidden="true" /> Watch the recap</button><button className="release-text-link" onClick={event => open('presentations', event)}><Play size={17} aria-hidden="true" /> Finalist presentations · 9:36</button></div>
@@ -71,7 +72,7 @@ export function Journal({ motion }) {
   const scene = useAmbientScene(motion);
   return <section ref={scene} className="release-journal release-chapter" id="journal" aria-labelledby="journal-heading">
     <PetalAtmosphere variant="journal-art" />
-    <div className="chapter-head"><p className="chapter-kicker">The Hyperbloom journal</p><h2 id="journal-heading">Stay curious.</h2><p className="chapter-lead">Ideas, tools, and fresh perspectives from the community.</p></div>
+    <div className="chapter-head has-flower"><FlowerAccent variant="journal" /><p className="chapter-kicker">The Hyperbloom journal</p><h2 id="journal-heading">Stay curious.</h2><p className="chapter-lead">Ideas, tools, and fresh perspectives from the community.</p></div>
     <div className="journal-preview">{articles.slice(0, 2).map(article => <ArticleEntry key={article.href} article={article} level={3} />)}</div>
     <div className="chapter-action"><Button href="/blog" secondary>Explore all articles</Button></div>
   </section>;
@@ -121,7 +122,7 @@ export function Footer({ motion, compact = false, controls }) {
   return <footer className={`release-footer ${compact ? 'compact' : ''}`}>
     <section ref={scene} className={`release-closing ${compact ? 'compact-contact' : ''}`} id="contact" aria-labelledby="contact-title">
       {!compact && <PetalAtmosphere variant="closing-art" />}
-      <div className="closing-copy"><p className="chapter-kicker">Contact the original organization</p><h2 id="contact-title">{compact ? 'Talk to Hyperbloom.' : <>Let’s make<br />something bloom.</>}</h2>{!compact && <p className="contact-subtitle serif">Talk to Hyperbloom.</p>}
+      <div className={`closing-copy ${compact ? '' : 'has-flower'}`}>{!compact && <FlowerAccent variant="closing" />}<p className="chapter-kicker">Contact the original organization</p><h2 id="contact-title">{compact ? 'Talk to Hyperbloom.' : <>Let’s make<br />something bloom.</>}</h2>{!compact && <p className="contact-subtitle serif">Talk to Hyperbloom.</p>}
         <div className="closing-contact-methods"><a href={links.email}><EnvelopeSimple size={21} aria-hidden="true" />hyperbloomhacks@gmail.com</a><a href={links.discord} target="_blank" rel="noopener noreferrer"><DiscordLogo size={22} aria-hidden="true" />Join the Discord community <ArrowUpRight size={15} aria-hidden="true" /></a><div><a href={links.official} target="_blank" rel="noopener noreferrer"><ArrowUpRight size={22} aria-hidden="true" />Official website &amp; live chat</a><p>Chat opens on the original Hyperbloom website.</p></div></div>
         <p className="contact-origin-note">These links reach Hyperbloom, not this mockup’s creator. <a href="/terms#rights-contact">Contact the creator about this prototype</a>.</p>
         {!compact && <div className="closing-buttons"><Button href="/#october">Explore October</Button><p>{state === 'closed' ? 'Submissions closed' : 'Submit by'} Oct 19, 2026 · 5 PM EDT</p></div>}
