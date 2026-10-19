@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { ArrowRight, ArrowUp, ArrowUpRight, DiscordLogo, EnvelopeSimple, InstagramLogo, LinkedinLogo, MagnifyingGlass, Play, Plus, X } from '@phosphor-icons/react';
 import { articlePath, articles, events, faq, founders, links, teamProfiles } from './content';
-import { eventIsOpen, octoberState, selectArticles, selectEvents } from './siteLogic.mjs';
+import { eventIsOpen, octoberEventPhase, octoberState, selectArticles, selectEvents } from './siteLogic.mjs';
 import { useAmbientScene, useClock } from './experienceHooks';
 import { useMedia } from './MediaDialog';
 import { FlowerAccent } from './FlowerAccent';
@@ -37,17 +37,18 @@ export function Community({ motion }) {
 export function EventArchive({ motion }) {
   const scene = useAmbientScene(motion);
   const now = useClock();
+  const phase = octoberEventPhase(now);
   const [filter, setFilter] = useState('all');
   const visible = selectEvents(events, filter, now);
   return <section ref={scene} className="release-events release-chapter" id="events" aria-labelledby="events-heading">
     <PetalAtmosphere variant="events-art" />
-    <div className="chapter-head"><p className="chapter-kicker">Upcoming &amp; past events</p><h2 id="events-heading">Find your next challenge.</h2><p className="chapter-lead">{octoberState(now) === 'open' ? 'One open challenge. A community ready to help.' : 'Explore our past challenges. Stay for what comes next.'}</p></div>
-    <div className="release-filters" role="group" aria-label="Filter events">{[['all', 'All events'], ['open', 'Open now'], ['past', 'Past events']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>
+    <div className="chapter-head"><p className="chapter-kicker">Upcoming &amp; past events</p><h2 id="events-heading">Find your next challenge.</h2><p className="chapter-lead">{phase === 'grading' ? 'October is being graded. Explore the challenge and our past events.' : phase === 'open' ? 'One open challenge. A community ready to help.' : 'Explore our past challenges. Stay for what comes next.'}</p></div>
+    <div className="release-filters" role="group" aria-label="Filter events">{[['all', 'All events'], ['current', phase === 'grading' ? 'Grading' : phase === 'upcoming' ? 'Coming soon' : 'Open now'], ['past', 'Past events']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>
     <p className="result-count" aria-live="polite">{visible.length} {visible.length === 1 ? 'event' : 'events'}</p>
     <div className="release-event-list">
       {visible.map((event, index) => {
         const isOpen = eventIsOpen(event, now);
-        const status = event.current ? isOpen ? 'Open now' : octoberState(now) === 'upcoming' ? 'Coming soon' : 'Submissions closed' : 'Registrations closed';
+        const status = event.current ? phase === 'grading' ? 'Grading' : phase === 'upcoming' ? 'Coming soon' : 'Open now' : 'Registrations closed';
         return <Fragment key={event.title}>{!event.current && (index === 0 || visible[index - 1].current) && <h3 className="past-challenges-heading">Past challenges</h3>}<article className={`release-event ${event.current ? 'featured' : ''}`}>
           <div className="release-event-meta"><span>{event.date}</span><span className={`release-event-status ${isOpen ? 'is-open' : ''}`}>{isOpen && <span aria-hidden="true" />}{status}</span></div>
           <div className="release-event-body"><div><h3><a href={event.title === 'Hyperbloom V1' ? '/reg-closed' : event.href}>{event.title === 'Beginner Friendly' ? 'Hyperbloom Beginner Friendly' : event.title}</a></h3>{event.theme && <p className={event.current ? 'featured-theme serif' : ''}>{event.theme}</p>}{event.current && <><p className="release-event-deadline">{isOpen ? 'Submit by' : 'Submission deadline:'} Oct 19, 2026 · 5 PM EDT</p><p>Online · Beginner-friendly</p><a className="release-button event-primary" href={event.href}>View challenge on Devpost <ArrowRight size={20} aria-hidden="true" /></a></>}</div>{!event.current && <a className="event-destination" href={event.title === 'Hyperbloom V1' ? '/reg-closed' : event.href}>{event.title === 'Hyperbloom V1' ? 'Event details' : 'View event'}<ArrowUpRight size={20} aria-hidden="true" /></a>}</div>

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { OCTOBER_START, OCTOBER_DEADLINE, octoberState, eventIsOpen, selectEvents, selectArticles, routeFor, fragmentId } from '../src/siteLogic.mjs';
+import { OCTOBER_START, OCTOBER_DEADLINE, OCTOBER_GRADING_START, octoberEventPhase, octoberState, eventIsOpen, selectEvents, selectArticles, routeFor, fragmentId } from '../src/siteLogic.mjs';
 import { articleForPath, articlePath, articles } from '../src/content.js';
 import { readingGuides } from '../src/articleContent.js';
 
@@ -12,16 +12,30 @@ test('the submission state changes at the actual EDT deadline, not midnight', ()
   assert.equal(octoberState(OCTOBER_DEADLINE - 1), 'open');
   assert.equal(octoberState(OCTOBER_DEADLINE), 'closed');
 });
-test('open and past event filters respond correctly when the deadline passes', () => {
+test('submission availability closes at the deadline while October remains current', () => {
   const upcoming = { title: 'Current', current: true };
   const past = { title: 'Earlier' };
   const input = [upcoming, past];
   assert.deepEqual(selectEvents(input, 'open', OCTOBER_DEADLINE - 1), [upcoming]);
   assert.deepEqual(selectEvents(input, 'past', OCTOBER_DEADLINE - 1), [past]);
   assert.deepEqual(selectEvents(input, 'open', OCTOBER_DEADLINE), []);
-  assert.deepEqual(selectEvents(input, 'past', OCTOBER_DEADLINE), input);
+  assert.deepEqual(selectEvents(input, 'past', OCTOBER_DEADLINE), [past]);
+  assert.deepEqual(selectEvents(input, 'current', OCTOBER_DEADLINE), [upcoming]);
   assert.equal(eventIsOpen(past, OCTOBER_DEADLINE - 1), false);
   assert.equal(eventIsOpen(upcoming, OCTOBER_START - 1), false);
+});
+test('October automatically enters grading after October 19 in Eastern time and stays featured', () => {
+  assert.equal(new Date(OCTOBER_GRADING_START).toISOString(), '2026-10-20T04:00:00.000Z');
+  assert.equal(octoberEventPhase(OCTOBER_START - 1), 'upcoming');
+  assert.equal(octoberEventPhase(OCTOBER_DEADLINE), 'open');
+  assert.equal(octoberEventPhase(OCTOBER_GRADING_START - 1), 'open');
+  assert.equal(octoberEventPhase(OCTOBER_GRADING_START), 'grading');
+  assert.equal(octoberEventPhase(Date.parse('2026-10-21T12:00:00Z')), 'grading');
+  const current = { current: true };
+  const past = { title: 'Earlier' };
+  assert.deepEqual(selectEvents([current, past], 'current', OCTOBER_GRADING_START), [current]);
+  assert.deepEqual(selectEvents([current, past], 'past', OCTOBER_GRADING_START), [past]);
+  assert.equal(eventIsOpen(current, OCTOBER_GRADING_START), false);
 });
 test('multiword article search normalizes accents and matches across title and description', () => {
   const input = [{ title: 'Café APIs', intro: 'Connecting services', category: 'DEVELOPMENT' }, { title: 'Networks', intro: 'Learning from data', category: 'AI' }];
