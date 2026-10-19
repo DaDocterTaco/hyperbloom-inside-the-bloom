@@ -22,5 +22,6 @@ public/art/*.png
 !public/art/bloom-scene.png
 public/art/*-v1.webp
 !public/art/bloom-sculpture-v1.webp
+!public/art/glass-petal-v1.webp
 .DS_Store
 Thumbs.db

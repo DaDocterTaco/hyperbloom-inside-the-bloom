@@ -1,0 +1,91 @@
+/* A small flower stage, rather than another full-width background reset. */
+.home-experience .release-chapter > .chapter-bloom {
+  --chapter-open: .72;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  isolation: isolate;
+}
+.home-experience .chapter-bloom-light {
+  position: absolute;
+  left: 50%;
+  top: 220px;
+  width: min(640px,100%);
+  height: 440px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 72%,#ffe5a887,transparent 69%);
+  opacity: calc(.4 + var(--chapter-open) * .6);
+}
+.home-experience .chapter-bloom-flower {
+  position: absolute;
+  left: 50%;
+  top: 270px;
+  width: 460px;
+  height: 307px;
+  transform: translateX(-50%);
+  perspective: 1000px;
+  filter: drop-shadow(0 20px 24px #6254a11c);
+}
+.home-experience .chapter-bloom-petal {
+  position: absolute;
+  left: 22.5%;
+  bottom: 0;
+  display: block;
+  width: 55%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  transform-origin: 50% 90%;
+  will-change: transform;
+}
+/* Five individual glass petals hinge outward from the same narrow gold base. */
+.home-experience .chapter-bloom .petal-outer-left {
+  transform: rotate(calc(-12deg - var(--chapter-open) * 49deg)) rotateY(calc(22deg - var(--chapter-open) * 18deg));
+}
+.home-experience .chapter-bloom .petal-outer-right {
+  transform: rotate(calc(12deg + var(--chapter-open) * 49deg)) rotateY(calc(-22deg + var(--chapter-open) * 18deg));
+}
+.home-experience .chapter-bloom .petal-crown {
+  transform: scale(.91,calc(.92 + var(--chapter-open) * .08));
+}
+.home-experience .chapter-bloom .petal-inner-left {
+  transform: rotate(calc(-5deg - var(--chapter-open) * 27deg)) rotateY(calc(12deg - var(--chapter-open) * 8deg)) scaleY(.95);
+}
+.home-experience .chapter-bloom .petal-inner-right {
+  transform: rotate(calc(5deg + var(--chapter-open) * 27deg)) rotateY(calc(-12deg + var(--chapter-open) * 8deg)) scaleY(.95);
+}
+.home-experience .chapter-bloom-heart {
+  position: absolute;
+  inset: 70% 27% 0;
+  background: radial-gradient(ellipse,#fff9d5c2,#ffe3a545 30%,transparent 67%);
+  opacity: calc(.2 + var(--chapter-open) * .5);
+  mix-blend-mode: screen;
+}
+/* Event flower is a quiet threshold between chapters, clear of the filter/list. */
+.home-experience .chapter-bloom--events .chapter-bloom-flower {
+  top: 0;
+  width: 180px;
+  height: 115px;
+  opacity: .92;
+  mask-image: linear-gradient(#000 50%,transparent 98%);
+}
+.home-experience .chapter-bloom--events .chapter-bloom-light {
+  top: -120px;
+  width: 470px;
+  height: 300px;
+}
+@media(max-width:600px) {
+  .home-experience .chapter-bloom-flower { top: 250px; width: 370px; height: 247px; }
+  .home-experience .chapter-bloom-light { top: 225px; height: 320px; }
+  .home-experience .chapter-bloom--events .chapter-bloom-flower { top: 0; width: 150px; height: 96px; }
+  .home-experience .chapter-bloom--events .chapter-bloom-light { top: -100px; width: 320px; height: 230px; }
+}
+@media(max-width:360px) {
+  .home-experience .chapter-bloom-flower { width: 330px; height: 220px; }
+}
+html[data-motion='off'] .home-experience .chapter-bloom-petal { will-change: auto; }
+@media(prefers-reduced-motion:reduce) {
+  .home-experience .chapter-bloom-petal { will-change: auto; }
+}

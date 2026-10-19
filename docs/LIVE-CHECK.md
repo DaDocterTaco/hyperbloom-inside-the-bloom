@@ -8,13 +8,15 @@ Verified October 19, 2026, before the 5 PM EDT submission deadline.
 
 ## Result
 
-- 25 automated tests passed; production build and release checks passed.
+- 29 automated tests passed; production build and release checks passed.
 - 13 public direct-route requests returned the current application shell, including both Terms URL variants, all four reader URLs and the missing-page recovery.
-- 64 deployed assets matched the exact local build bytes, including the hero fallback, dynamically assembled partner marks, fonts and deadline calendar. No asset request fell through to the HTML rewrite.
+- 65 deployed assets matched the exact local build bytes, including the new transparent glass petal, hero fallback, dynamically assembled partner marks, fonts and deadline calendar. No asset request fell through to the HTML rewrite.
 - HTML revalidates; hashed bundles have immutable caching.
 - The repository is public and its main branch is pushed independently of the neighboring workspace projects.
 
 ## Live browser checks
+
+Opening-flower refinement: the homepage now has six independent glass petals, measured chapter phases through Contact, compact five-petal community/event flowers, and a seven-petal radial closing blossom. Native scrolling changed the observed phase from 0.2066 to 0.9756 in the community handoff; pure tests verify continued opening across all later chapters and exact reversal. Global pause produced identical computed petal transforms before/after scrolling. At 320/390px, the journal and closing flower remained within the page width, links stayed available, and secondary Blog contained no home flowers or articulated petals. No console errors were observed.
 
 Final visual pass: the lower homepage continues inside the giant glass-bloom environment, while secondary routes retain restrained edge petals. Home and blog article lists use compact editorial rows without oversized diagrams or repeated guide buttons. Original author links, all four readers, search/topics, event filters, FAQ and official-service handoffs remain. The sponsor Pause/View all buttons are removed; all seven links appear automatically as a stationary layout on keyboard entry or global pause. Narrow-phone checks at 320/390 CSS pixels include search, readable FAQ and the stationary sponsor layout without horizontal overflow.
 

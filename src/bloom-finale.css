@@ -1,0 +1,47 @@
+/* A living flower punctuates the last chapters; reading and controls stay still. */
+.bloom-finale { display: none; }
+.home-experience .bloom-finale { --finale-open: 1; display: block; position: relative; isolation: isolate; pointer-events: none; user-select: none; z-index: 0; }
+.home-experience .bloom-finale img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home-experience .finale-flower { position: absolute; inset: 0; transform: translate3d(0,calc((1 - var(--finale-open)) * 15px),0) scale(calc(.86 + var(--finale-open) * .14)); transform-origin: 50% 78%; }
+.home-experience .finale-flower-half { position: absolute; inset: 0; transform-origin: 50% 72%; will-change: transform; }
+.home-experience .finale-flower-left { clip-path: inset(0 49.8% 0 0); transform: rotate(calc((1 - var(--finale-open)) * 8deg)); }
+.home-experience .finale-flower-right { clip-path: inset(0 0 0 49.8%); transform: rotate(calc((var(--finale-open) - 1) * 8deg)); }
+.home-experience .finale-gold-light { position: absolute; z-index: -1; inset: 5% 10% -8%; border-radius: 50%; background: radial-gradient(ellipse at 50% 65%,#ffcf6270, #fff0ba24 42%,transparent 69%); transform: scale(calc(.8 + var(--finale-open) * .3)); }
+.home-experience .finale-ground-light { position: absolute; bottom: 0; left: 20%; right: 20%; height: 15%; border-radius: 50%; background: radial-gradient(ellipse,#f9d78565,transparent 70%); }
+
+/* A single small flower is a pause above the compact editorial list. */
+.home-experience .bloom-finale--journal { width: 158px; height: 103px; margin: -10px auto 16px; }
+.home-experience .release-journal:has(> .bloom-finale) > .chapter-head::before { display: none; }
+
+/* The mission remains calm while the material carries through its outer edge. */
+.home-experience .bloom-finale--about { position: absolute; width: min(550px,44vw); height: 380px; top: 18%; right: min(-210px,-12vw); opacity: .72; transform: rotate(-18deg); mask-image: linear-gradient(90deg,transparent 4%,#000 40%); }
+.home-experience .bloom-finale--about .finale-flower { transform: translate3d(calc(var(--finale-open) * 32px),calc((1 - var(--finale-open)) * 45px),0) rotate(calc(var(--finale-open) * 10deg)); }
+
+/* The final complete flower opens below the actions, giving the story an ending. */
+.home-experience .bloom-finale--closing { width: min(1120px,100%); height: clamp(225px,25vw,310px); margin: 18px auto -70px; }
+.home-experience .finale-radial-flower { position: absolute; width: min(680px,85vw); aspect-ratio: 1; top: 50%; left: 50%; transform: translate(-50%,-50%) perspective(1200px) rotateX(48deg) scale(calc(.74 + var(--finale-open) * .14)); transform-origin: 50% 50%; }
+.home-experience .bloom-finale .finale-radial-petal { position: absolute; width: 46%; height: auto; aspect-ratio: 1; bottom: 45.4%; left: 27%; transform-origin: 50% 90%; transform: rotate(calc(var(--petal-angle) * min(1,calc(.32 + var(--finale-open) * 1.6)))) scaleY(calc(.88 + var(--finale-open) * .12)); z-index: var(--petal-depth); will-change: transform; }
+.home-experience .finale-gold-heart { position: absolute; z-index: 5; left: 50%; top: 50%; width: 62px; height: 62px; background: radial-gradient(circle,#fffef1 0%,#ffe18d 22%,#d49b31 52%,#9b651b 78%); clip-path: polygon(50% 0,91% 25%,100% 65%,50% 100%,0 65%,9% 25%); box-shadow: 0 0 40px #ffd36b; transform: translate(-50%,-50%) scale(calc(.72 + var(--finale-open) * .28)); }
+.home-experience .finale-gold-heart i { position: absolute; inset: 15% 40% 5% 10%; transform: rotate(-22deg); background: linear-gradient(120deg,#fffbc9,#e6ad3a 60%,#a26b1a); clip-path: polygon(50% 0,100% 40%,65% 100%,0 56%); }
+.home-experience .finale-gold-heart i:nth-child(2) { inset: 4% 20% 0 37%; transform: rotate(15deg); }
+.home-experience .finale-gold-heart i:nth-child(3) { inset: 20% 2% 3% 60%; transform: rotate(32deg); }
+.home-experience .bloom-finale--closing .finale-gold-light { inset: -35% 9% -10%; background: radial-gradient(ellipse at 50% 61%,#ffe3a0a6,#fff0bb42 35%,transparent 66%); }
+.home-experience .bloom-finale--closing .finale-ground-light { bottom: -2%; left: 12%; right: 12%; height: 30%; background: radial-gradient(ellipse,#ebbd6266,transparent 69%); }
+
+@media(max-width:760px) {
+  .home-experience .bloom-finale--journal { width: 136px; height: 90px; margin-top: -4px; margin-bottom: 12px; }
+  .home-experience .bloom-finale--about { width: 320px; height: 240px; top: 25%; right: -240px; opacity: .58; }
+  .home-experience .bloom-finale--closing { height: clamp(175px,44vw,260px); width: calc(100% + 48px); max-width: none; margin: 24px -24px -45px; }
+  .home-experience .finale-radial-flower { width: 460px; max-width: 112vw; }
+  .home-experience .finale-gold-heart { width: 44px; height: 44px; }
+}
+@media(max-width:360px) {
+  .home-experience .bloom-finale--closing { height: 162px; margin-top: 20px; }
+  .home-experience .bloom-finale--journal { width: 122px; height: 81px; }
+}
+html[data-motion='off'] .home-experience .bloom-finale { --finale-open: 1 !important; }
+html[data-motion='off'] .home-experience .bloom-finale :is(.finale-flower-half,.finale-radial-petal) { will-change: auto; }
+@media(prefers-reduced-motion:reduce) {
+  .home-experience .bloom-finale { --finale-open: 1 !important; }
+  .home-experience .bloom-finale :is(.finale-flower-half,.finale-radial-petal) { will-change: auto; }
+}

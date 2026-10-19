@@ -10,6 +10,9 @@ import "./refinements.css";
 import "./premium.css";
 import "./legal.css";
 import "./finale.css";
+import "./lower-bloom.css";
+import "./home-chapter-bloom.css";
+import "./bloom-finale.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
