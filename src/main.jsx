@@ -11,6 +11,7 @@ import "./premium.css";
 import "./legal.css";
 import "./finale.css";
 import "./flower-accent.css";
+import "./closing-polish.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
