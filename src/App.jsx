@@ -27,6 +27,7 @@ import { useClock } from './experienceHooks';
 import { octoberState } from './siteLogic.mjs';
 import { ArticlePage } from './ArticlePage';
 import { BloomContinuity } from './BloomContinuity';
+import { LegalPage } from './LegalPage';
 
 function Action({ href, children, ...props }) {
   return (
@@ -41,9 +42,9 @@ function Eyebrow({ children, light = false }) {
 }
 function Brand() {
   return (
-    <a className="brand" href="/#home" aria-label="Hyperbloom Hacks home">
+    <a className="brand" href="/#home" aria-label="Hyperbloom redesign home — independent design mockup">
       <img src="/brand/hyperbloom-mark.svg" alt="" />
-      <span>Hyperbloom Hacks</span>
+      <span>Hyperbloom Hacks<small>Independent design mockup</small></span>
     </a>
   );
 }
@@ -143,6 +144,7 @@ function BloomHero() {
           hyperbloom
         </div>
         <p className="motto">Empower. Engage. Innovate.</p>
+        <p className="hero-project-notice">Not affiliated with or endorsed by Hyperbloom Hacks. <a href="/terms">Project notice</a></p>
         <div className="hero-intro">
           <h1 id="hero-heading">
             Make
@@ -252,14 +254,15 @@ function ContactPanel() {
     <button ref={trigger} className="footer-utility" aria-label="Contact Hyperbloom" aria-haspopup="dialog" onClick={() => panel.current?.showModal()}><ChatCircle size={19} aria-hidden="true" /> Contact options</button>
     <dialog ref={panel} className="contact-dialog" aria-labelledby="contact-heading" onCancel={event => { event.preventDefault(); close(); }} onClick={event => { if (event.target === event.currentTarget) close(); }}>
       <button className="contact-close" aria-label="Close contact options" onClick={close}><X size={23} /></button>
-      <p className="eyebrow">General inquiries</p>
+      <p className="eyebrow">Original organization</p>
       <h2 id="contact-heading">Talk to Hyperbloom.</h2>
-      <p className="contact-intro">Choose how to reach the team.</p>
+      <p className="contact-intro">These links reach the original Hyperbloom team. This independent mockup is maintained separately.</p>
       <div className="contact-options">
         <a href={links.email}><EnvelopeSimple size={24} /><span><strong>Email</strong><small>hyperbloomhacks@gmail.com</small></span><ArrowUpRight size={20} /></a>
         <a href={links.discord} target="_blank" rel="noopener noreferrer"><DiscordLogo size={24} /><span><strong>Discord</strong><small>Visit the Hyperbloom community</small></span><ArrowUpRight size={20} /></a>
         <a href={links.official} target="_blank" rel="noopener noreferrer"><ChatCircle size={24} /><span><strong>Official live chat</strong><small>Use “Let’s Chat!” on their website</small></span><ArrowUpRight size={20} /></a>
       </div>
+      <p className="contact-origin-note">For this prototype or rights concerns, <a href="/terms#rights-contact" onClick={close}>contact the creator</a>.</p>
     </dialog>
   </>;
 }
@@ -301,7 +304,7 @@ export function App() {
           <Journal motion={motion} />
           <About motion={motion} />
           <Questions />
-        </> : route === "blog" ? <BlogPage motion={motion} /> : route === 'article' ? <ArticlePage key={routeKey} motion={motion} /> : route === "gallery" ? <GalleryPage motion={motion} /> : route === "v1" ? <V1GalleryPage motion={motion} /> : <RecoveryPage closed={route === "closed"} />}
+        </> : route === "terms" ? <LegalPage /> : route === "blog" ? <BlogPage motion={motion} /> : route === 'article' ? <ArticlePage key={routeKey} motion={motion} /> : route === "gallery" ? <GalleryPage motion={motion} /> : route === "v1" ? <V1GalleryPage motion={motion} /> : <RecoveryPage closed={route === "closed"} />}
       </main>
       <Footer motion={motion} compact={route !== "home"} controls={<><MotionControl motion={motion} reducedMotion={reducedMotion} toggle={() => setMotionRequested(!motionRequested)} /><ContactPanel /></>} />
     </div></MediaProvider>

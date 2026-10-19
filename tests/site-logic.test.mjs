@@ -37,6 +37,9 @@ test('canonical and trailing slash routes resolve without accepting an unknown p
   assert.equal(routeFor('/gallery'), 'gallery');
   assert.equal(routeFor('/v1-gallery'), 'v1');
   assert.equal(routeFor('/reg-closed'), 'closed');
+  assert.equal(routeFor('/terms'), 'terms');
+  assert.equal(routeFor('/terms/'), 'terms');
+  assert.equal(routeFor('/terms/not-a-page'), 'missing');
   assert.equal(routeFor('/gallery/not-an-event'), 'missing');
 });
 test('malformed fragments cannot break initial navigation', () => {

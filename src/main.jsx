@@ -8,6 +8,7 @@ import "./parity.css";
 import "./cinema.css";
 import "./refinements.css";
 import "./premium.css";
+import "./legal.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>

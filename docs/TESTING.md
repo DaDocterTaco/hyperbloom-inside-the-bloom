@@ -7,6 +7,7 @@ Checked October 19, 2026 before the 5 PM EDT deadline.
 - `npm test`: 25 passing tests. Covers hero and benefits motion bounds and exact reversal, original article routing, search normalization, event filters and the precise submission cutoff, calendar output, plus the retained worker/static packaging behavior.
 - `npm run build`: production compilation succeeds.
 - `npm run check:release`: verifies all compiled image/font/script/style references, dynamically assembled partner logos, the Firebase public output and SPA fallback, and exclusion of private/development content. The source PNG fallback for the hero is retained.
+- The October 19 project-notice update also verifies `/terms` routing (including a trailing slash and unknown subpath), readable 320px Terms layout, direct refresh, privacy navigation, all-page footer disclosures and the separate creator-contact path. Live validation checks 13 direct routes and 64 exact-match build assets. Drafting is not an attorney review or a guarantee of legal protection.
 
 ## Browser coverage
 

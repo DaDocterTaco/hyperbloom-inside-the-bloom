@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fragmentId, routeFor } from './siteLogic.mjs';
 import { articleForPath } from './content';
 
-const pageNames = { home: 'Make something bloom.', blog: 'The journal', gallery: 'The gallery', v1: 'Hyperbloom V1', closed: 'Registration closed', missing: 'Page not found' };
+const pageNames = { home: 'Make something bloom.', terms: 'Terms & project notice', blog: 'The journal', gallery: 'The gallery', v1: 'Hyperbloom V1', closed: 'Registration closed', missing: 'Page not found' };
 
 function revealAnchor(id) {
   const anchor = id && document.getElementById(id);
@@ -24,7 +24,7 @@ export function useSiteNavigation() {
   useEffect(() => {
     let active = true;
     let frame = 0;
-    document.title = `Hyperbloom Hacks — ${articleForPath(location.path)?.title || pageNames[routeFor(location.path)]}`;
+    document.title = `Hyperbloom Redesign — ${articleForPath(location.path)?.title || pageNames[routeFor(location.path)]}`;
     document.fonts.ready.then(() => {
       if (!active) return;
       frame = requestAnimationFrame(() => {

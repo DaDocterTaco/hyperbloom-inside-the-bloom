@@ -27,7 +27,7 @@ for (const name of readdirSync(path.join(build, 'assets')).filter(name => /\.(js
 const experience = readFileSync(path.join(root, 'src/Experience.jsx'), 'utf8');
 for (const match of experience.matchAll(/['"]([a-f0-9]{16}\.(?:png|jpg))['"]/g)) add('/source/' + match[1]);
 assets.add('/hyperbloom-october.ics');
-const routes = ['/', '/blog', '/blog?q=API', '/gallery', '/v1-gallery', '/reg-closed', '/post/what-is-the-n8n-hype', '/post/neural-networks-the-technology-behind-modern-ai', '/post/what-is-an-api-the-invisible-messenger-behind-modern-apps', '/post/what-are-ai-agents-and-how-are-they-impacting-the-world', '/unknown-page'];
+const routes = ['/', '/terms', '/terms/', '/blog', '/blog?q=API', '/gallery', '/v1-gallery', '/reg-closed', '/post/what-is-the-n8n-hype', '/post/neural-networks-the-technology-behind-modern-ai', '/post/what-is-an-api-the-invisible-messenger-behind-modern-apps', '/post/what-are-ai-agents-and-how-are-they-impacting-the-world', '/unknown-page'];
 const report = { base: base.origin, checkedAt: new Date().toISOString(), routes: [], assets: [] };
 for (const route of routes) {
   const response = await fetch(new URL(route, base), { signal: AbortSignal.timeout(30000) });

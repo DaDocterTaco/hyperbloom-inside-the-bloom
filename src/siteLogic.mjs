@@ -26,6 +26,7 @@ export function selectArticles(articles, query = '', category = 'all') {
 export function routeFor(pathname) {
   const path = pathname.replace(/\/+$/, '') || '/';
   if (path === '/') return 'home';
+  if (path === '/terms') return 'terms';
   if (path === '/blog') return 'blog';
   if (path === '/gallery') return 'gallery';
   if (path === '/v1-gallery') return 'v1';

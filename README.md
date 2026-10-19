@@ -4,6 +4,8 @@ A cinematic, responsive redesign of [Hyperbloom Hacks](https://www.hyperbloomhac
 
 **[Live website](https://hyperbloom-bloom-2026.web.app/)** · **[Hackathon](https://hyperbloom-october.devpost.com/)** · **[Asset credits](ASSETS.md)** · **[Testing](docs/TESTING.md)**
 
+**Independent design mockup by Victor Velazquez.** Victor does not own Hyperbloom Hacks. This project is not affiliated with, sponsored by or endorsed by Hyperbloom or the organizations shown. Original branding, content and third-party marks belong to their respective owners. See the [Terms, project disclaimer and privacy notice](https://hyperbloom-bloom-2026.web.app/terms). Public source access does not grant rights to third-party assets; no blanket license is applied to them.
+
 ![Working homepage](docs/homepage.jpg)
 
 ## Design and experience

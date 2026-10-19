@@ -12,3 +12,5 @@ This is an independent redesign made for the Hyperbloom October UI/UX and Web De
 - **Application:** React 19 and Vite 6. Dependency licenses remain with their respective packages.
 
 AI-assisted development and ImageGen were used during creation. No user accounts, fake registrations, fake chat responses, invented project entries or fabricated impact metrics are added.
+
+Victor Velazquez does not own Hyperbloom Hacks. This independent mockup is not affiliated with, sponsored by or endorsed by Hyperbloom or the organizations shown. Attribution is not a claim of permission or a license to reuse third-party material. [Terms, project disclaimer, privacy and rights contact](https://hyperbloom-bloom-2026.web.app/terms).
